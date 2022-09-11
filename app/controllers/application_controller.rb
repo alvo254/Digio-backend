@@ -64,6 +64,12 @@ class ApplicationController < Sinatra::Base
       desc.to_json
     end
 
+    delete '/description/:id' do 
+      tms = Tm.find(params[:id])
+      tms.destroy
+      tms.to_json
+    end
+
       post '/student' do
         student = Student.create(
           name: params[:name],
