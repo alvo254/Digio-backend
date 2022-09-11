@@ -65,9 +65,9 @@ class ApplicationController < Sinatra::Base
     end
 
     delete '/description/:id' do 
-      tms = Tm.find(params[:id])
-      tms.destroy
-      tms.to_json
+      desc = Course.find(params[:id])
+      desc.destroy
+      desc.to_json
     end
 
       post '/student' do
