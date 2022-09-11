@@ -59,7 +59,7 @@ class ApplicationController < Sinatra::Base
       desc.to_json
     end
 
-    post '/description' do
+    get '/description' do
       desc = Course.all
       desc.to_json
     end
