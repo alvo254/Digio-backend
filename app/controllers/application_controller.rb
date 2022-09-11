@@ -11,6 +11,16 @@ class ApplicationController < Sinatra::Base
       students.to_json
 
     end
+ 
+    get '/tms' do
+      tms = Tm.all
+      tms.to_json
+    end
+
+    get '/tms/:id' do
+      tms = Tm.find(params[:id])
+      tms.to_json
+    end
 
 
 
@@ -50,6 +60,55 @@ class ApplicationController < Sinatra::Base
         )
         student.to_json
     end
+
+    post '/student/:id' do
+      student = Student.create(
+        name: params[:name],
+        grades: params[:grades],
+        email: params[:email],
+
+      )
+      student.to_json
+  end
+
+    get "/student" do
+      stu = Student.all
+      stu.to_json
+    end
+
+    get "/courses" do
+      cour = Course.all
+      cour.to_json
+    end
+
+    post "/courses" do
+      cour = Course.create(
+        course_name: params[:course_name],
+        description: params[:description]
+      )
+      cour.to_json
+    end
+
+  
+
+
+    post '/tms' do
+      tms = Tm.create(
+        name: params[:name],
+        speciality: params[:speciality],
+        email: params[:email],
+
+      )
+      tms.to_json
+    end
+
+
+
+    delete '/tms/:id' do 
+      tms = Tm.find(params[:id])
+      tms.destroy
+      tms.to_json
+    end
     
     delete '/student/:id' do 
       student = Student.find(params[:id])
@@ -57,6 +116,15 @@ class ApplicationController < Sinatra::Base
       student.to_json
     end
 
+    patch '/tms/:id' do
+      tms = Tm.find(params[:id])
+      tms.update(
+        name: params[:name],
+        speciality: params[:speciality],
+        email: params[:email],
+      )
+      tms.to_json
+    end
     # patch '/restaurants/:id' do 
     #   restaurant = Restaurant.find(params[:id])
     #    restaurant.update(

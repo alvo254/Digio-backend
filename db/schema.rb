@@ -10,20 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_07_154807) do
+ActiveRecord::Schema.define(version: 2022_09_09_085535) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "restaurants", force: :cascade do |t|
-    t.string "name"
-    t.string "location"
+  create_table "courses", force: :cascade do |t|
+    t.string "course_name"
+    t.string "description"
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string "body"
-    t.integer "restaurant_id"
-    t.integer "user_id"
+    t.string "name"
+    t.string "review"
   end
 
   create_table "students", force: :cascade do |t|
@@ -32,8 +28,10 @@ ActiveRecord::Schema.define(version: 2022_09_07_154807) do
     t.string "email"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "tms", force: :cascade do |t|
     t.string "name"
+    t.string "speciality"
+    t.string "email"
   end
 
 end
