@@ -51,6 +51,19 @@ class ApplicationController < Sinatra::Base
     #     restaurant.to_json
     #   end
 
+    post '/description' do
+      desc = Course.create(
+        course_name: params[:course_name],
+        description: params[:description]
+      )
+      desc.to_json
+    end
+
+    post '/description' do
+      desc = Course.all
+      desc.to_json
+    end
+
       post '/student' do
         student = Student.create(
           name: params[:name],
