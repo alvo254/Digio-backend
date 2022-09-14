@@ -22,35 +22,6 @@ class ApplicationController < Sinatra::Base
       tms.to_json
     end
 
-
-
-    #   post '/reviewss' do
-    #     review = Review.create(
-    #       body: params[:body],
-    #       restaurant_id: params[:restaurant_id],
-    #       user_id: params[:user_id]
-    #     )
-    #     review.to_json
-    #   end
-
-    #   get '/reviewss' do
-    #     reviewss = Review.all
-    #     reviewss.to_json
-
-    #   end
-
-    #   get '/users' do
-    #     users = User.all
-    #     users.to_json
-    #   end
-
-    #   # resutrants routes
-
-    #   get '/restaurants' do 
-    #     restaurant = Restaurant.all
-    #     restaurant.to_json
-    #   end
-
     post '/description' do
       desc = Course.create(
         course_name: params[:course_name],
